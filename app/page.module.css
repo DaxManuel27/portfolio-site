@@ -1,0 +1,271 @@
+.section {
+  min-height: 100vh;
+  padding: 2rem 2rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section:nth-child(2) {
+  align-items: flex-start;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  min-height: auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.section:first-child .container {
+  text-align: center;
+}
+
+.profileImage {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  margin-bottom: 2rem;
+  border: 4px solid #c19a6b;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #2c2c2c;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #4a4a4a;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  border-right: 3px solid #4a4a4a;
+  white-space: nowrap;
+  animation: typing 9s steps(40, end) infinite, blink-caret 9s step-end infinite;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+  max-width: fit-content;
+  width: 0;
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  33% {
+    width: 100%;
+  }
+  89% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes blink-caret {
+  0%, 33% {
+    border-color: #4a4a4a;
+  }
+  33.1%, 89% {
+    border-color: transparent;
+  }
+  89.1%, 100% {
+    border-color: #4a4a4a;
+  }
+}
+.contents{
+  font-size: 1.3rem;
+  color: #4a4a4a;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sectionTitle {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: #8b6914;
+  text-align: center;
+}
+
+.resumeContent {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.resumeText {
+  font-size: 1.2rem;
+  color: #4a4a4a;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.downloadButton {
+  display: inline-block;
+  background-color: #c19a6b;
+  color: #2c2c2c;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  border: 2px solid #c19a6b;
+  cursor: pointer;
+}
+
+.downloadButton:hover {
+  background-color: transparent;
+  color: #c19a6b;
+}
+
+.resumeSection {
+  background-color: rgba(250, 245, 235, 0.5);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  border: 1px solid #c19a6b;
+}
+
+.resumeSection h2 {
+  font-size: 2rem;
+  color: #8b6914;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #c19a6b;
+  padding-bottom: 0.5rem;
+}
+
+.item {
+  margin-bottom: 2rem;
+}
+
+.item:last-child {
+  margin-bottom: 0;
+}
+
+.item h3 {
+  font-size: 1.5rem;
+  color: #2c2c2c;
+  margin-bottom: 0.5rem;
+}
+
+.company {
+  font-style: italic;
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+
+.date {
+  color: #888;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.list {
+  margin-left: 1.5rem;
+  line-height: 1.8;
+}
+
+.list li {
+  margin-bottom: 0.5rem;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skill {
+  background-color: #c19a6b;
+  color: #2c2c2c;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+}
+
+.skill:hover {
+  transform: translateY(-2px);
+  background-color: #b8936a;
+}
+
+.intro {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 3rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.projectCard {
+  background-color: rgba(250, 245, 235, 0.5);
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid #c19a6b;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projectCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.projectTitle {
+  font-size: 1.8rem;
+  color: #8b6914;
+  margin-bottom: 1rem;
+}
+
+.projectDescription {
+  color: #4a4a4a;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  background-color: #c19a6b;
+  color: #2c2c2c;
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.githubLink {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #8b6914;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.githubLink:hover {
+  color: #c19a6b;
+  transform: translateX(5px);
+}
+
