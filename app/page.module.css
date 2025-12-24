@@ -13,6 +13,12 @@
   min-height: auto;
 }
 
+.section:nth-child(3) {
+  align-items: flex-start;
+  padding-top: 2rem;
+  min-height: auto;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -87,6 +93,7 @@
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 1.5rem;
 }
 
 .sectionTitle {

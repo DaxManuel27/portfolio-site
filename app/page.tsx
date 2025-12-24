@@ -13,7 +13,11 @@ export default function Home() {
           <h1 className={styles.title}>Dax Manuel</h1>
           <h2 className={styles.subtitle}>Software Engineering @ the University of New Brunswick</h2>
           <p className={styles.contents}>
-              Currently, I am a Powertrain member at UNB Formula SAE, where I'm working on low-voltage systems of an electric race car.
+              Currently, I am a Powertrain member at UNB Formula SAE, where I'm working on low-voltage systems of an electric race car. 
+              
+          </p>
+          <p className={styles.contents}>
+              My interests span across machine learning, computer vision, and artificial intelligence specifically for autonomous vehicles. My most recent project applies that interest into a real applicable project.
           </p>
         </div>
       </section>
@@ -32,7 +36,7 @@ export default function Home() {
 
       <section id="portfolio" className={styles.section}>
         <div className={styles.container}>
-          <h1 className={styles.sectionTitle}>Portfolio</h1>
+          <h1 className={styles.sectionTitle}>Projects</h1>
 
           <div className={styles.projectGrid}>
             <div className={styles.projectCard}>
