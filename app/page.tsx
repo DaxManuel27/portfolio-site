@@ -1,6 +1,30 @@
+'use client'
+
 import styles from './page.module.css'
+import { useEffect } from 'react'
 
 export default function Home() {
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(styles.visible)
+        }
+      })
+    }, observerOptions)
+
+    // Observe all fade-in elements
+    const elements = document.querySelectorAll(`.${styles.fadeIn}`)
+    elements.forEach(el => observer.observe(el))
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <>
       <section id="home" className={styles.section}>
@@ -22,7 +46,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="resume" className={styles.section}>
+      <section id="resume" className={`${styles.section} ${styles.fadeIn}`}>
         <div className={styles.container}>
           <div className={styles.resumeContent}>
             <h1 className={styles.sectionTitle}>Resume</h1>
@@ -34,12 +58,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="portfolio" className={styles.section}>
+{/* Projects section temporarily hidden
+      <section id="portfolio" className={`${styles.section} ${styles.fadeIn}`}>
         <div className={styles.container}>
           <h1 className={styles.sectionTitle}>Projects</h1>
 
           <div className={styles.projectGrid}>
-            <div className={styles.projectCard}>
+            <div className={`${styles.projectCard} ${styles.fadeIn}`}>
               <h2 className={styles.projectTitle}>Soccer Match Predictor</h2>
               <p className={styles.projectDescription}>
                 Uses 700+ games to predict outcomes of Premier League Soccer matches
@@ -54,7 +79,7 @@ export default function Home() {
               </a>
             </div>
 
-            <div className={styles.projectCard}>
+            <div className={`${styles.projectCard} ${styles.fadeIn}`}>
               <h2 className={styles.projectTitle}>Vehicle Perception Model</h2>
               <p className={styles.projectDescription}>
                 Deep learning model for vehicle detection and classification in autonomous driving scenarios
@@ -71,6 +96,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
     </>
   )
 }
