@@ -107,6 +107,32 @@
   margin-bottom: 1.5rem;
 }
 
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.socialIcon {
+  color: #4a4a4a;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  border-radius: 50%;
+  background-color: rgba(193, 154, 107, 0.15);
+  border: 2px solid transparent;
+}
+
+.socialIcon:hover {
+  color: #c19a6b;
+  background-color: rgba(193, 154, 107, 0.25);
+  border-color: #c19a6b;
+  transform: translateY(-3px);
+}
+
 .sectionTitle {
   font-size: 3rem;
   margin-bottom: 2rem;
