@@ -1,9 +1,44 @@
 'use client'
 
 import styles from './page.module.css'
-import { useEffect } from 'react'
+import { useEffect, useState, useRef, useCallback } from 'react'
 
 export default function Home() {
+  const [isFlipped, setIsFlipped] = useState(false)
+  const [isHovering, setIsHovering] = useState(false)
+  const intervalRef = useRef<NodeJS.Timeout | null>(null)
+
+  const startTimer = useCallback(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current)
+    intervalRef.current = setInterval(() => {
+      setIsFlipped(prev => !prev)
+    }, 5000)
+  }, [])
+
+  const stopTimer = useCallback(() => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current)
+      intervalRef.current = null
+    }
+  }, [])
+
+  useEffect(() => {
+    startTimer()
+    return () => stopTimer()
+  }, [startTimer, stopTimer])
+
+  const handleMouseEnter = () => {
+    setIsHovering(true)
+    stopTimer()
+    setIsFlipped(prev => !prev)
+  }
+
+  const handleMouseLeave = () => {
+    setIsHovering(false)
+    setIsFlipped(prev => !prev)
+    startTimer()
+  }
+
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
@@ -29,11 +64,20 @@ export default function Home() {
     <>
       <section id="home" className={styles.section}>
         <div className={styles.container}>
-          <img 
-            src="/logo.png" 
-            alt="Profile" 
-            className={styles.profileImage}
-          />
+          <div 
+            className={styles.flipContainer}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <div className={`${styles.flipper} ${isFlipped ? styles.flipped : ''}`}>
+              <div className={styles.flipFront}>
+                <img src="/logo.png" alt="Logo" className={styles.profileImage} />
+              </div>
+              <div className={styles.flipBack}>
+                <img src="/headshot.jpg" alt="Headshot" className={styles.profileImage} />
+              </div>
+            </div>
+          </div>
           <h1 className={styles.title}>Dax Manuel</h1>
           <h2 className={styles.subtitle}>Software Engineering @ the University of New Brunswick</h2>
           <p className={styles.contents}>
@@ -41,7 +85,7 @@ export default function Home() {
               
           </p>
           <p className={styles.contents}>
-              My interests span across machine learning, computer vision, and artificial intelligence specifically for autonomous vehicles. My most recent project applies that interest into a real applicable project.
+              My interests span across machine learning, computer vision, and artificial intelligence specifically for autonomous vehicles. Currently, I am working on a vehicle perception model project.
           </p>
           
           <div className={styles.socialLinks}>
@@ -76,40 +120,32 @@ export default function Home() {
         <div className={styles.container}>
           <h1 className={styles.sectionTitle}>Projects</h1>
 
-          <div className={styles.projectGrid}>
-            <div className={`${styles.projectCard} ${styles.fadeIn}`}>
-              <h2 className={styles.projectTitle}>Soccer Match Predictor</h2>
-              <p className={styles.projectDescription}>
-                Uses 700+ games to predict outcomes of Premier League Soccer matches
-              </p>
-              <div className={styles.tags}>
-                <span className={styles.tag}>Python</span>
-                <span className={styles.tag}>Scikit-learn</span>
-                <span className={styles.tag}>pandas/numpy</span>
-              </div>
-              <a href="https://github.com/yourusername/project-one" target="_blank" rel="noopener noreferrer" className={styles.githubLink}>
-                View on GitHub →
+          <div className={`${styles.projectCard} ${styles.fadeIn}`}>
+            <div className={styles.projectHeader}>
+              <h2 className={styles.projectTitle}>Project Title Here</h2>
+              <a href="https://github.com/DaxManuel27/your-repo" target="_blank" rel="noopener noreferrer" className={styles.githubButton}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                View on GitHub
               </a>
             </div>
-
-            <div className={`${styles.projectCard} ${styles.fadeIn}`}>
-              <h2 className={styles.projectTitle}>Vehicle Perception Model</h2>
-              <p className={styles.projectDescription}>
-                Deep learning model for vehicle detection and classification in autonomous driving scenarios
-              </p>
-              <div className={styles.tags}>
-                <span className={styles.tag}>Python</span>
-                <span className={styles.tag}>PyTorch</span>
-                <span className={styles.tag}>pandas/numpy</span>
-              </div>
-              <a href="https://github.com/DaxManuel27/lidar-object-detection" target="_blank" rel="noopener noreferrer" className={styles.githubLink}>
-                View on GitHub →
-              </a>
+            
+            <p className={styles.projectDescription}>
+              Add your project description here. Explain what the project does, what technologies you used, 
+              what problems it solves, and any interesting challenges you overcame during development.
+            </p>
+            
+            <div className={styles.projectImages}>
+              <img src="/projects/project1-img1.png" alt="Project screenshot 1" className={styles.projectImage} />
+              <img src="/projects/project1-img2.png" alt="Project screenshot 2" className={styles.projectImage} />
+              <img src="/projects/project1-img3.png" alt="Project screenshot 3" className={styles.projectImage} />
             </div>
           </div>
+
         </div>
       </section>
-      */}
+*/}
     </>
   )
 }
