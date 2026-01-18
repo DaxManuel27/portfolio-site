@@ -108,7 +108,7 @@ export default function Home() {
           <div className={styles.resumeContent}>
             <h1 className={styles.sectionTitle}>Resume</h1>
             
-            <a href="/resume.pdf" download className={styles.downloadButton}>
+            <a href="/DaxManuel_Jan18.pdf" download className={styles.downloadButton}>
               Download Resume
             </a>
           </div>
