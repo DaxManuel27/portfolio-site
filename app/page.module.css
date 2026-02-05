@@ -20,6 +20,7 @@
 .section:first-child {
   min-height: 92vh;
   padding-bottom: 2rem;
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0.6) 0%, transparent 100%);
 }
 
 .section:nth-child(2) {
@@ -27,6 +28,9 @@
   padding-top: 4rem;
   padding-bottom: 2rem;
   min-height: auto;
+  background-color: rgba(18, 18, 18, 0.8);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .section:nth-child(3) {
@@ -36,13 +40,91 @@
 }
 
 .container {
-  max-width: 1200px;
+  width: 50%;
   margin: 0 auto;
-  width: 100%;
 }
 
-.section:first-child .container {
-  text-align: center;
+@media (max-width: 1024px) {
+  .container {
+    width: 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+}
+
+.heroLayout {
+  display: flex;
+  align-items: flex-start;
+  gap: 4rem;
+}
+
+.heroLeft {
+  flex-shrink: 0;
+}
+
+.heroRight {
+  text-align: left;
+}
+
+.currentlySection {
+  margin-top: 1.5rem;
+}
+
+.currentlyTitle {
+  font-size: 1.1rem;
+  color: #a3a3a3;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.currentlyList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.currentlyList li {
+  color: #e5e5e5;
+  font-size: 1rem;
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.currentlyList li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 6px;
+  height: 6px;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .heroLayout {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .heroRight {
+    text-align: center;
+  }
+
+  .currentlyList li {
+    padding-left: 0;
+  }
+
+  .currentlyList li::before {
+    display: none;
+  }
 }
 
 .flipContainer {
@@ -84,143 +166,242 @@
   border-radius: 50%;
   object-fit: cover;
   object-position: center top;
-  border: 4px solid #c19a6b;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.titleWrapper {
+  display: block;
 }
 
 .title {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: #2c2c2c;
-}
-
-.subtitle {
-  font-size: 1.5rem;
-  color: #4a4a4a;
-  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+  font-weight: 700;
   overflow: hidden;
-  border-right: 3px solid #4a4a4a;
+  border-right: 3px solid #ffffff;
   white-space: nowrap;
-  animation: typing 9s steps(40, end) infinite, blink-caret 9s step-end infinite;
-  margin-left: auto;
-  margin-right: auto;
   display: inline-block;
   max-width: fit-content;
-  width: 0;
+  animation: typing 5s infinite, blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
-  0% {
-    width: 0;
-  }
-  33% {
-    width: 100%;
-  }
-  89% {
-    width: 100%;
-  }
-  100% {
-    width: 0;
-  }
+  0% { width: 0; }
+  3% { width: 10%; }
+  6% { width: 20%; }
+  9% { width: 30%; }
+  12% { width: 40%; }
+  15% { width: 50%; }
+  18% { width: 60%; }
+  21% { width: 70%; }
+  24% { width: 80%; }
+  27% { width: 90%; }
+  30%, 70% { width: 100%; }
+  73% { width: 90%; }
+  76% { width: 80%; }
+  79% { width: 70%; }
+  82% { width: 60%; }
+  85% { width: 50%; }
+  88% { width: 40%; }
+  91% { width: 30%; }
+  94% { width: 20%; }
+  97% { width: 10%; }
+  100% { width: 0; }
 }
 
 @keyframes blink-caret {
-  0%, 33% {
-    border-color: #4a4a4a;
-  }
-  33.1%, 89% {
+  from, to {
     border-color: transparent;
   }
-  89.1%, 100% {
-    border-color: #4a4a4a;
+  50% {
+    border-color: #ffffff;
   }
 }
-.contents{
-  font-size: 1.3rem;
-  color: #4a4a4a;
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #a3a3a3;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+.contents {
+  font-size: 1.1rem;
+  color: #a3a3a3;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1.5rem;
+  line-height: 1.8;
 }
 
 .socialLinks {
   display: flex;
-  justify-content: center;
-  gap: 1.5rem;
+  justify-content: flex-start;
+  gap: 1rem;
   margin-top: 2rem;
 }
 
+@media (max-width: 768px) {
+  .socialLinks {
+    justify-content: center;
+  }
+}
+
 .socialIcon {
-  color: #4a4a4a;
+  color: #a3a3a3;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0.75rem;
-  border-radius: 50%;
-  background-color: rgba(193, 154, 107, 0.15);
-  border: 2px solid transparent;
+  border-radius: 12px;
+  background-color: rgba(30, 30, 30, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .socialIcon:hover {
-  color: #c19a6b;
-  background-color: rgba(193, 154, 107, 0.25);
-  border-color: #c19a6b;
+  color: #ffffff;
+  background-color: rgba(45, 45, 45, 0.9);
+  border-color: rgba(255, 255, 255, 0.15);
   transform: translateY(-3px);
 }
 
 .sectionTitle {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 2rem;
-  color: #8b6914;
+  color: #ffffff;
   text-align: center;
+  font-weight: 700;
 }
 
 .resumeContent {
   text-align: center;
-  max-width: 600px;
+  width: 100%;
   margin: 0 auto;
 }
 
+.pdfContainer {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #1a1a1a;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.pdfViewer {
+  width: 100%;
+  height: 700px;
+  border: none;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .pdfViewer {
+    height: 500px;
+  }
+}
+
+.resumeCard {
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 3rem;
+  max-width: 400px;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.resumeIcon {
+  color: #737373;
+  margin-bottom: 1.5rem;
+}
+
+.resumeFileName {
+  color: #e5e5e5;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.resumeButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.viewButton {
+  display: inline-block;
+  background: transparent;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.viewButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 480px) {
+  .resumeButtons {
+    flex-direction: column;
+  }
+  
+  .resumeCard {
+    padding: 2rem;
+  }
+}
+
 .resumeText {
-  font-size: 1.2rem;
-  color: #4a4a4a;
+  font-size: 1.1rem;
+  color: #a3a3a3;
   margin-bottom: 2rem;
   line-height: 1.6;
 }
 
 .downloadButton {
   display: inline-block;
-  background-color: #c19a6b;
-  color: #2c2c2c;
+  background-color: #ffffff;
+  color: #0a0a0a;
   padding: 0.75rem 2rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
-  border-radius: 50px;
+  border-radius: 8px;
   transition: all 0.3s ease;
-  border: 2px solid #c19a6b;
+  border: none;
   cursor: pointer;
 }
 
 .downloadButton:hover {
-  background-color: transparent;
-  color: #c19a6b;
+  background-color: #e5e5e5;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
 }
 
 .resumeSection {
-  background-color: rgba(250, 245, 235, 0.5);
+  background-color: rgba(255, 255, 255, 0.03);
   padding: 2rem;
   margin-bottom: 2rem;
-  border-radius: 8px;
-  border: 1px solid #c19a6b;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .resumeSection h2 {
-  font-size: 2rem;
-  color: #8b6914;
+  font-size: 1.75rem;
+  color: #ffffff;
   margin-bottom: 1.5rem;
-  border-bottom: 2px solid #c19a6b;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 0.5rem;
 }
 
@@ -233,19 +414,19 @@
 }
 
 .item h3 {
-  font-size: 1.5rem;
-  color: #2c2c2c;
+  font-size: 1.25rem;
+  color: #ffffff;
   margin-bottom: 0.5rem;
 }
 
 .company {
   font-style: italic;
-  color: #666;
+  color: #737373;
   margin-bottom: 0.25rem;
 }
 
 .date {
-  color: #888;
+  color: #525252;
   font-size: 0.95rem;
   margin-bottom: 1rem;
 }
@@ -253,6 +434,7 @@
 .list {
   margin-left: 1.5rem;
   line-height: 1.8;
+  color: #a3a3a3;
 }
 
 .list li {
@@ -262,27 +444,29 @@
 .skills {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .skill {
-  background-color: #c19a6b;
-  color: #2c2c2c;
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
   padding: 0.5rem 1rem;
-  border-radius: 20px;
+  border-radius: 6px;
   font-weight: 500;
-  transition: transform 0.2s ease;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(59, 130, 246, 0.2);
 }
 
 .skill:hover {
   transform: translateY(-2px);
-  background-color: #b8936a;
+  background-color: rgba(59, 130, 246, 0.2);
 }
 
 .intro {
   text-align: center;
-  font-size: 1.2rem;
-  color: #666;
+  font-size: 1.1rem;
+  color: #737373;
   margin-bottom: 3rem;
   max-width: 700px;
   margin-left: auto;
@@ -314,33 +498,35 @@
 }
 
 .projectTitle {
-  font-size: 2rem;
-  color: #8b6914;
+  font-size: 1.75rem;
+  color: #ffffff;
   margin: 0;
+  font-weight: 600;
 }
 
 .githubButton {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: #2c2c2c;
-  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
   padding: 0.6rem 1.2rem;
   border-radius: 8px;
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .githubButton:hover {
-  background-color: #444;
+  background-color: rgba(255, 255, 255, 0.15);
   transform: translateY(-2px);
 }
 
 .projectDescription {
-  color: #4a4a4a;
+  color: #a3a3a3;
   line-height: 1.8;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   margin-bottom: 2rem;
 }
 
@@ -354,15 +540,15 @@
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid rgba(193, 154, 107, 0.3);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
 .projectImage:hover {
   transform: scale(1.02);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
 .tags {
@@ -372,25 +558,24 @@
 }
 
 .tag {
-  background-color: #c19a6b;
-  color: #2c2c2c;
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
   padding: 0.4rem 0.8rem;
-  border-radius: 15px;
-  font-size: 0.9rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
   font-weight: 500;
 }
 
 .githubLink {
   display: inline-block;
   margin-top: 1rem;
-  color: #8b6914;
+  color: #3b82f6;
   font-weight: 600;
   font-size: 1rem;
   transition: all 0.3s ease;
 }
 
 .githubLink:hover {
-  color: #c19a6b;
+  color: #60a5fa;
   transform: translateX(5px);
 }
-
