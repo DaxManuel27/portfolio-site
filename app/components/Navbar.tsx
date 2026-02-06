@@ -21,7 +21,7 @@ export default function Navbar() {
           </li>
           <li>
             <a href="#portfolio" className={styles.navLink}>
-              Portfolio
+              Projects
             </a>
           </li>
         </ul>

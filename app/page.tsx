@@ -69,14 +69,6 @@ export default function Home() {
           <div className={styles.resumeContent}>
             <h1 className={styles.sectionTitle}>Resume</h1>
             
-            <div className={styles.pdfContainer}>
-              <iframe 
-                src="/DaxManuel-ResumeFeb4.pdf#toolbar=0&navpanes=0&scrollbar=0"
-                className={styles.pdfViewer}
-                title="Resume"
-              />
-            </div>
-            
             <a href="/DaxManuel-ResumeFeb4.pdf" download className={styles.downloadButton}>
               Download Resume
             </a>
