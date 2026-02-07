@@ -4,23 +4,23 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <div className={styles.container}>
-        <a href="#home" className={styles.logo}>
+        <a href="/" className={styles.logo}>
           Dax Manuel
         </a>
         
         <ul className={styles.navLinks}>
           <li>
-            <a href="#home" className={styles.navLink}>
+            <a href="/" className={styles.navLink}>
               Home
             </a>
           </li>
           <li>
-            <a href="#resume" className={styles.navLink}>
+            <a href="/#resume" className={styles.navLink}>
               Resume
             </a>
           </li>
           <li>
-            <a href="#portfolio" className={styles.navLink}>
+            <a href="/projects" className={styles.navLink}>
               Projects
             </a>
           </li>
