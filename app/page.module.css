@@ -17,10 +17,20 @@
   justify-content: center;
 }
 
-.section:first-child {
-  min-height: 92vh;
-  padding-bottom: 2rem;
+.homePage {
+  height: calc(100vh - 80px);
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: linear-gradient(180deg, rgba(20, 20, 20, 0.6) 0%, transparent 100%);
+}
+
+.bottomRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
 .section:nth-child(2) {
@@ -37,6 +47,13 @@
   align-items: flex-start;
   padding-top: 2rem;
   min-height: auto;
+}
+
+@media (max-width: 768px) {
+  .bottomRow {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .container {
@@ -271,12 +288,81 @@
   transform: translateY(-3px);
 }
 
+.resumeButton {
+  color: #a3a3a3;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  background-color: rgba(30, 30, 30, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.resumeButton:hover {
+  color: #ffffff;
+  background-color: rgba(45, 45, 45, 0.9);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+}
+
 .sectionTitle {
   font-size: 2.5rem;
   margin-bottom: 2rem;
   color: #ffffff;
   text-align: center;
   font-weight: 700;
+}
+
+.githubActivity {
+  text-align: center;
+}
+
+.chartWrapper {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  border-radius: 12px;
+  background: #161b22;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  direction: rtl;
+}
+
+.contributionChart {
+  width: 400%;
+  display: block;
+  filter: invert(1) hue-rotate(180deg);
+  direction: ltr;
+  border-radius: 3px;
+}
+
+.githubStats {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.statsCard {
+  border-radius: 12px;
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .githubStats {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .statsCard {
+    max-width: 100%;
+  }
 }
 
 .resumeContent {

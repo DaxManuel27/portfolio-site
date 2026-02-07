@@ -15,11 +15,6 @@ export default function Navbar() {
             </a>
           </li>
           <li>
-            <a href="/#resume" className={styles.navLink}>
-              Resume
-            </a>
-          </li>
-          <li>
             <a href="/projects" className={styles.navLink}>
               Projects
             </a>

@@ -2,6 +2,7 @@
 
 import styles from './page.module.css'
 import { useEffect } from 'react'
+import GitHubCalendar from './components/GitHubCalendar'
 
 export default function Home() {
   useEffect(() => {
@@ -27,7 +28,7 @@ export default function Home() {
 
   return (
     <>
-      <section id="home" className={styles.section}>
+      <section id="home" className={styles.homePage}>
         <div className={styles.container}>
           <div className={styles.heroLayout}>
             <div className={styles.heroLeft}>
@@ -60,20 +61,22 @@ export default function Home() {
                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                   </svg>
                 </a>
+                <a href="/DaxManuel-ResumeFeb7.pdf" download className={styles.resumeButton} aria-label="Resume">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                  Resume
+                </a>
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      <section id="resume" className={styles.section}>
-        <div className={styles.container}>
-          <div className={styles.resumeContent}>
-            <h1 className={styles.sectionTitle}>Resume</h1>
-            
-            <a href="/DaxManuel-ResumeFeb7.pdf" download className={styles.downloadButton}>
-              Download Resume
-            </a>
+          <div className={styles.bottomRow}>
+            <div className={styles.githubActivity}>
+              <GitHubCalendar username="DaxManuel27" />
+            </div>
           </div>
         </div>
       </section>
