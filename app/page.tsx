@@ -37,13 +37,15 @@ export default function Home() {
               <div className={styles.titleWrapper}>
                 <h1 className={styles.title}>Dax Manuel</h1>
               </div>
-              <h2 className={styles.subtitle}>Software Engineering @ the University of New Brunswick | UNB Men's Varsity Soccer Player</h2>
+              <h2 className={styles.subtitle}>Software Engineering, Mathematics @ the University of New Brunswick </h2>
               
               <div className={styles.currentlySection}>
                 <h3 className={styles.currentlyTitle}>Currently:</h3>
                 <ul className={styles.currentlyList}>
                   <li>Powertrain @ UNB Formula Electric</li>
                   <li>Research Intern @ Intelligent Mobility and Robotics Lab</li>
+                  <li>#19 @ UNB Men's Varsity Soccer</li>
+                  <li>Coaching Soccer @ FDSA</li>
                 </ul>
               </div>
               
@@ -69,7 +71,7 @@ export default function Home() {
           <div className={styles.resumeContent}>
             <h1 className={styles.sectionTitle}>Resume</h1>
             
-            <a href="/DaxManuel-ResumeFeb6.pdf" download className={styles.downloadButton}>
+            <a href="/DaxManuel-ResumeFeb7.pdf" download className={styles.downloadButton}>
               Download Resume
             </a>
           </div>

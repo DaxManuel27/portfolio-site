@@ -19,7 +19,7 @@ const projects = [
     github: "https://github.com/DaxManuel27CS2043-Project"
   },
   {
-    title: "VibeCAD | Mchacks '26",
+    title: "CAD Automation Platform | Mchacks '26",
     dateRange: "Jan 2026",
     description: "Generating 3D CAD Models with Gemini API",
     tags: ["Next.js", "FastAPI", "Gemini API"],
