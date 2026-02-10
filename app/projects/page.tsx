@@ -5,6 +5,13 @@ import { useEffect } from 'react'
 
 const projects = [
   {
+    title: "Neural Network from Scratch in C",
+    dateRange: "Feb 2206",
+    description: "Built a neural network handwritten digit classifier with the MNIST dataset, with 98% accuracy.",
+    tags: ["C"],
+    github: "https://github.com/DaxManuel27neural-network-in-c"
+  },
+  {
     title: "Vehicle Perception Model",
     dateRange: "Nov 2025 - Jan 2026",
     description: "Add your project description here. Explain what the project does and what technologies you used.",
