@@ -14,7 +14,7 @@ const projects = [
   {
     title: "Vehicle Perception Model",
     dateRange: "Nov 2025 - Jan 2026",
-    description: "Add your project description here. Explain what the project does and what technologies you used.",
+    description: "Creating 3D bounding box predictions for vehicles on LiDAR driving data. .",
     tags: ["Python", "PyTorch", "Pandas", "NumPy"],
     github: "https://github.com/DaxManuel27vehicle-perception-model"
   },
