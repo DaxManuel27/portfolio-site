@@ -64,7 +64,7 @@ export default function Home() {
                 <h3 className={styles.currentlyTitle}>Currently:</h3>
                 <ul className={styles.currentlyList}>
                   <li>Powertrain @ UNB Formula Electric</li>
-                  <li>Research Intern @ Intelligent Mobility and Robotics Lab</li>
+                  
                   <li>#19 @ UNB Men's Varsity Soccer</li>
                   <li>Coaching Soccer @ FDSA</li>
                 </ul>
