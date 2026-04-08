@@ -1,6 +1,4 @@
-import { motion, useInView } from "motion/react";
-import { useRef } from "react";
-import { useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import { Github } from "lucide-react";
 
 const projects = [
@@ -63,80 +61,65 @@ const projects = [
 ];
 
 export function Projects() {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "center center"]
-  });
-
-  const x = useTransform(scrollYProgress, [0, 0.7], ["-60%", "0%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7], [0, 0.5, 1]);
-
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1 });
-
   return (
-    <section id="projects" ref={containerRef} className="relative min-h-screen py-20">
-      <motion.div
-        style={{ x, opacity }}
-        ref={ref}
-        className="max-w-7xl mx-auto px-6"
-      >
-        <p className="text-center text-xs uppercase tracking-[0.3em] text-gray-600 mb-4 font-medium" style={{ fontFamily: "var(--font-display)" }}>What I've built</p>
-        <h2 className="text-5xl md:text-6xl mb-6 text-center font-semibold tracking-tight bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent" style={{ fontFamily: "var(--font-display)" }}>
-          Projects
-        </h2>
-        <p className="text-gray-500 text-sm text-center mb-16 max-w-xl mx-auto font-light tracking-wide">
-          A collection of my work and side projects
-        </p>
+    <div className="w-full h-full flex items-center overflow-y-auto">
+      <div className="max-w-7xl mx-auto px-6 py-24 w-full">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <p className="text-center text-xs uppercase tracking-[0.3em] text-gray-600 mb-4 font-medium" style={{ fontFamily: "var(--font-display)" }}>What I've built</p>
+          <h2 className="text-5xl md:text-6xl mb-6 text-center font-semibold tracking-tight bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent" style={{ fontFamily: "var(--font-display)" }}>
+            Projects
+          </h2>
+          <p className="text-gray-500 text-sm text-center mb-12 max-w-xl mx-auto font-light tracking-wide">
+            A collection of my work and side projects
+          </p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-all flex flex-col p-6"
-            >
-              <div className="flex items-start justify-between mb-3">
-                <div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.07, duration: 0.5 }}
+                whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-all flex flex-col p-6"
+              >
+                <div className="mb-3">
                   <h3 className="text-base text-white leading-snug font-medium tracking-tight" style={{ fontFamily: "var(--font-display)" }}>{project.title}</h3>
                   <p className="text-gray-600 text-xs mt-1 tracking-wide font-light">{project.date}</p>
                 </div>
-              </div>
 
-              <p className="text-gray-500 mb-4 leading-relaxed text-sm flex-1 font-light">
-                {project.description}
-              </p>
+                <p className="text-gray-500 mb-4 leading-relaxed text-sm flex-1 font-light">
+                  {project.description}
+                </p>
 
-              <div className="flex flex-wrap gap-2 mb-5">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 text-xs bg-white/5 border border-white/10 rounded-full text-gray-300"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+                <div className="flex flex-wrap gap-2 mb-5">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="px-3 py-1 text-xs bg-white/5 border border-white/10 rounded-full text-gray-300">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
 
-              <motion.a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-white/20 transition-all text-gray-300 w-fit"
-              >
-                <Github className="w-4 h-4" />
-                <span className="text-sm">GitHub</span>
-              </motion.a>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
-    </section>
+                <motion.a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-white/20 transition-all text-gray-300 w-fit"
+                >
+                  <Github className="w-4 h-4" />
+                  <span className="text-sm">GitHub</span>
+                </motion.a>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </div>
   );
 }
