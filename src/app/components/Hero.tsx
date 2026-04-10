@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { Github, Linkedin, ArrowDown } from "lucide-react";
+import { GitHubHeatmap } from "./GitHubHeatmap";
 
 export function Hero() {
   const scrollToNext = () => {
@@ -91,6 +92,15 @@ export function Hero() {
             >
               <Linkedin className="w-6 h-6 text-white" />
             </motion.a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.95 }}
+            className="mb-10 max-w-2xl mx-auto"
+          >
+            <GitHubHeatmap username="DaxManuel27" />
           </motion.div>
 
           <motion.button
