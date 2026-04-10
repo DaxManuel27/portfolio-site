@@ -43,7 +43,7 @@ export function Hero() {
             transition={{ delay: 0.5 }}
             className="text-base md:text-lg text-gray-400 mb-10 max-w-xl mx-auto font-light tracking-wide"
           >
-            Software Engineering & Mathematics — University of New Brunswick
+            SWE + Math @ University of New Brunswick
           </motion.p>
 
           <motion.div
@@ -56,7 +56,6 @@ export function Hero() {
             <ul className="text-gray-400 space-y-1.5 text-sm font-light">
               <li>Powertrain @ UNB Formula Electric</li>
               <li>#19 @ UNB Men's Varsity Soccer</li>
-              <li>Coaching Soccer @ FDSA</li>
             </ul>
           </motion.div>
 

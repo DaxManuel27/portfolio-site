@@ -28,13 +28,10 @@ export function About() {
 
             <div className="space-y-5">
               <p className="text-gray-400 text-base leading-relaxed font-light">
-                I'm a Software Engineering and Mathematics student at the University of New Brunswick with a deep passion for building things that matter.
+                My interests span across software engineering, machine learning, and computer vision — specifically in automotive, and robotics.
               </p>
               <p className="text-gray-400 text-base leading-relaxed font-light">
-                My interests span across software engineering, machine learning, and computer vision — specifically in automotive, aerospace, and robotics.
-              </p>
-              <p className="text-gray-400 text-base leading-relaxed font-light">
-                Outside of code, I'm on the powertrain team at UNB Formula Electric, play varsity soccer as #19, and coach soccer at FDSA.
+                Outside of code, I'm on the powertrain team at UNB Formula Racing, playing university soccer, hitting the gym, or doing some random side quest.
               </p>
 
               <div className="pt-2">
